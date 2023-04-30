@@ -1,0 +1,9 @@
+@model MarkdownBodyPartMermaidSettingsViewModel
+
+<div class="form-group type-part-display type-part-display-mermaid">
+    <label asp-for="Theme">@T["Theme"]</label>
+    <select asp-for="Theme" class="form-control col-sm-3">
+        <option value="base">@T["Base"]</option>
+        <option value="dark">@T["Dark"]</option>
+    </select>
+</div>

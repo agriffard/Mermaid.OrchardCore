@@ -1,0 +1,14 @@
+[
+  {
+    "inputs": [
+      "node_modules/prismjs/prism.js"
+    ],
+    "output": "wwwroot/Scripts/prism.js"
+  },
+  {
+    "inputs": [
+      "node_modules/prismjs/themes/prism.css"
+    ],
+    "output": "wwwroot/Styles/prism.css"
+  }
+]

@@ -1,0 +1,17 @@
+@using Mermaid.OrchardCore.Settings
+@model OrchardCore.Markdown.ViewModels.MarkdownBodyPartViewModel
+
+@{
+    MarkdownBodyPartMermaidSettings mermaidSettings = new MarkdownBodyPartMermaidSettings();
+    if (Model.TypePartDefinition != null)
+    {
+        mermaidSettings = Model.TypePartDefinition.GetSettings<MarkdownBodyPartMermaidSettings>();
+    }
+}
+
+@Html.Raw(Model.Html)
+
+<script asp-name="mermaid" at="Foot"></script>
+<script at="Foot">
+    mermaid.initialize({ startOnLoad: true, theme: '@(mermaidSettings.Theme ?? "base")' });
+</script>

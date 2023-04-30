@@ -1,0 +1,9 @@
+{
+  "MarkdownBodyPart_Display__Mermaid": [
+    {
+      "place": "Content:10",
+      "displayType": "DetailAdmin",
+      "contentType": "DashboardWidget"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+@model OrchardCore.Markdown.ViewModels.MarkdownFieldViewModel
+@using OrchardCore.Mvc.Utilities
+@using Mermaid.OrchardCore.Settings
+
+@{
+    var settings = Model.PartFieldDefinition.GetSettings<MarkdownFieldMermaidDisplaySettings>();
+}
+@{
+    MarkdownFieldMermaidDisplaySettings mermaidSettings = new MarkdownFieldMermaidDisplaySettings();
+    if (Model.PartFieldDefinition != null)
+    {
+        mermaidSettings = Model.PartFieldDefinition.GetSettings<MarkdownFieldMermaidDisplaySettings>();
+    }
+}
+
+@Html.Raw(Model.Html)
+
+<script asp-name="mermaid" at="Foot"></script>
+<script at="Foot">
+    mermaid.initialize({ startOnLoad: true, theme: '@(mermaidSettings.Theme ?? "base")' });
+</script>
