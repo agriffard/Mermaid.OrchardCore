@@ -1,5 +1,3 @@
-using Newtonsoft.Json;
-
 namespace Mermaid.OrchardCore.Settings
 {
     public class MarkdownFieldMermaidDisplaySettings

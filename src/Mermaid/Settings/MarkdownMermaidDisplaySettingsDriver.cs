@@ -5,12 +5,13 @@ using OrchardCore.DisplayManagement.ModelBinding;
 using OrchardCore.DisplayManagement.Views;
 using OrchardCore.Markdown.Models;
 using Mermaid.OrchardCore.ViewModels;
+using OrchardCore.DisplayManagement.Handlers;
 
 namespace Mermaid.OrchardCore.Settings
 {
     public class MarkdownMermaidDisplaySettingsDriver : ContentTypePartDefinitionDisplayDriver<MarkdownBodyPart>
     {
-        public override IDisplayResult Edit(ContentTypePartDefinition contentTypePartDefinition, IUpdateModel updater)
+        public override IDisplayResult Edit(ContentTypePartDefinition contentTypePartDefinition, BuildEditorContext context)
         {
             return Initialize<MarkdownBodyPartMermaidSettingsViewModel>("MarkdownBodyPartMermaidSettings_Edit", model =>
                 {
@@ -36,7 +37,7 @@ namespace Mermaid.OrchardCore.Settings
                 }
             }
 
-            return Edit(contentTypePartDefinition, context.Updater);
+            return Edit(contentTypePartDefinition, context);
         }
     }
 }

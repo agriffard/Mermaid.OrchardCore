@@ -4,12 +4,13 @@ using OrchardCore.ContentManagement.Metadata.Models;
 using OrchardCore.ContentTypes.Editors;
 using OrchardCore.DisplayManagement.Views;
 using Mermaid.OrchardCore.ViewModels;
+using OrchardCore.DisplayManagement.Handlers;
 
 namespace Mermaid.OrchardCore.Settings
 {
     public class MarkdownFieldMermaidDisplaySettingsDriver : ContentPartFieldDefinitionDisplayDriver<HtmlField>
     {
-        public override IDisplayResult Edit(ContentPartFieldDefinition partFieldDefinition)
+        public override IDisplayResult Edit(ContentPartFieldDefinition partFieldDefinition, BuildEditorContext context)
         {
             return Initialize<MermaidSettingsViewModel>("MarkdownFieldMermaidDisplaySettings_Edit", model =>
             {
@@ -34,7 +35,7 @@ namespace Mermaid.OrchardCore.Settings
                 context.Builder.WithSettings(settings);
             }
 
-            return Edit(partFieldDefinition);
+            return Edit(partFieldDefinition, context);
         }
     }
 }
